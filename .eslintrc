@@ -1,0 +1,9 @@
+{
+   "extends": ["standard", "standard-react"],
+   "rules": {
+     "no-trailing-spaces": 2,
+     "semi": 0,
+     "indent": ["error", 4],
+     "space-before-function-paren": ["error", "never"]
+     }
+}

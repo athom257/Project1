@@ -1,0 +1,70 @@
+1. npm init  <enter thru all the items>
+2. npm install react react-dom --save (Install react)
+3. npm install babel-loader babel-core babel-preset-es2015 babel-preset-react
+4. create the following files in the project root folder.
+
+touch index.html App.js main.js webpack.config.js
+
+5. npm install babel webpack webpack-dev-server 
+6. Modify webpack.config.js
+
+module.exports = {
+	entry: './main.js',
+	output: {
+		path: './',
+		filename: 'index.js'
+	},
+	devServer: {
+		inline: true,
+		port: 3333
+	},
+	module: {
+		loaders: [
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				loader: 'babel',
+				query: {
+					presets: ['es2015', 'react']
+				}
+			}
+		]
+	}
+}
+
+
+7. Modify index.html
+
+Add snippet:
+<body>
+	<div id="app"></div>
+	<script src="index.js"></script>
+</body>
+
+8. Modify App.js
+
+import React from 'react';
+class App extends React.Component {
+	render() {
+		return <div>Hello</div>
+	}
+}
+export default App
+
+9. Modify main.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById('app'))
+
+10. Modify package.json
+
+
+    "scripts": {
+	  "start": "webpack-dev-server"
+	 }
+	 
+11. npm start;
+12. localhost:3333
